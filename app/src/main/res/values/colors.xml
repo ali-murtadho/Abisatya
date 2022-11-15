@@ -9,4 +9,10 @@
     <color name="white">#FFFFFFFF</color>
     <color name="background_color">#EDE1DD</color>
     <color name="primary_color">#AF908A</color>
+    <color name="secondary_color">#7D7269</color>
+    <color name="tertiary_color">#646464</color>
+    <color name="quaternary_color">#D9D9D9</color>
+    <color name="five_color">#A2A2A2</color>
+    <color name="import_color">#C6B2AE</color>
+    <color name="transparent">#00000000</color>
 </resources>

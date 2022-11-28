@@ -71,16 +71,6 @@
                 android:textColor="@color/tertiary_color"
                 android:textSize="20sp" />
         </LinearLayout>
-        <ImageView
-            android:id="@+id/btnLogout"
-            android:layout_width="42dp"
-            android:layout_height="23dp"
-            android:layout_marginLeft="45dp"
-            app:srcCompat="@drawable/logout"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/header_name"/>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -105,10 +95,10 @@
                 android:id="@+id/tvApaKabar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="5dp"
                 android:fontFamily="@font/nunito_extrabold"
                 android:text="Hows Your Day?"
                 android:textStyle="bold"
@@ -254,6 +244,18 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <android.widget.Button
+                android:id="@+id/mm_btnLogout"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/primary_color"
+                android:background="@drawable/square"
+                android:fontFamily="@font/roboto_medium"
+                android:text="Logout"
+                android:textColor="@color/white"
+                android:textSize="12sp">
+            </android.widget.Button>
 
         </LinearLayout>
 

@@ -75,7 +75,7 @@
             android:id="@+id/btnLogout"
             android:layout_width="42dp"
             android:layout_height="23dp"
-            android:layout_marginLeft="40dp"
+            android:layout_marginLeft="45dp"
             app:srcCompat="@drawable/logout"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"

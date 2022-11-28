@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 public class CatatanActivity extends AppCompatActivity {
     CardView cCatatan;
+    Button btnEdit;
     ImageView ibtnBack, ibtnPlus;
 
     @Override
@@ -23,8 +24,8 @@ public class CatatanActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_catatan);
 
-        cCatatan = findViewById(R.id.Catatan);
-        cCatatan.setOnClickListener(new View.OnClickListener() {
+        btnEdit = findViewById(R.id.btnEdit);
+        btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent catatan = new Intent(CatatanActivity.this, IsiCatatanActivity.class);

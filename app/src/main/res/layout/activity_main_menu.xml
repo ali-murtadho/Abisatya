@@ -26,6 +26,7 @@
             app:layout_constraintBottom_toBottomOf="parent"/>
 
         <LinearLayout
+            android:id="@+id/header_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -69,18 +70,16 @@
                 android:text="Selamat Datang"
                 android:textColor="@color/tertiary_color"
                 android:textSize="20sp" />
-
         </LinearLayout>
-
         <ImageView
             android:id="@+id/btnLogout"
             android:layout_width="42dp"
             android:layout_height="23dp"
+            android:layout_marginLeft="40dp"
             app:srcCompat="@drawable/logout"
-            tools:layout_editor_absoluteX="363dp"
-            tools:layout_editor_absoluteY="11dp"
-            tools:ignore="MissingConstraints" />
-
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/header_name"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

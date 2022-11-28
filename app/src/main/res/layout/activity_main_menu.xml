@@ -72,7 +72,18 @@
 
         </LinearLayout>
 
+        <ImageView
+            android:id="@+id/btnLogout"
+            android:layout_width="42dp"
+            android:layout_height="23dp"
+            app:srcCompat="@drawable/logout"
+            tools:layout_editor_absoluteX="363dp"
+            tools:layout_editor_absoluteY="11dp"
+            tools:ignore="MissingConstraints" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

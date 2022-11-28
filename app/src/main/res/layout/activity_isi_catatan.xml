@@ -110,10 +110,11 @@
         app:cardCornerRadius="15dp">
 
         <EditText
+            android:id="@+id/etCatatan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            android:hint="Halo"
+            android:hint="tulis disini"
             android:background="@color/transparent">
         </EditText>
 

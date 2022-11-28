@@ -40,17 +40,16 @@
                 </ImageView>
 
                 <TextView
-                    android:id="@+id/tvSelesai"
+                    android:id="@+id/tvSave"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="16dp"
                     android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
                     android:layout_marginLeft="220dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginRight="25dp"
+                    android:fontFamily="@font/nunito_bold"
                     android:text="Selesai"
-                    android:textSize="16sp"
-                    android:fontFamily="@font/nunito_bold">
-                </TextView>
+                    android:textSize="16sp"></TextView>
 
             </LinearLayout>
 
@@ -77,7 +76,7 @@
                     app:layout_constraintBottom_toBottomOf="parent">
 
                     <EditText
-                        android:id="@+id/tvCaatatanSatu"
+                        android:id="@+id/etJudul"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nunito_bold"
@@ -109,6 +108,7 @@
         app:cardCornerRadius="15dp">
 
         <EditText
+            android:id="@+id/etTeksDiary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"

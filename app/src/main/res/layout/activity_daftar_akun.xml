@@ -72,6 +72,7 @@
             android:backgroundTint="@color/background_color">
 
             <EditText
+                android:id="@+id/regNama"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/transparent">
@@ -96,6 +97,7 @@
             android:backgroundTint="@color/background_color">
 
             <EditText
+                android:id="@+id/regTelepon"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/transparent">
@@ -119,6 +121,7 @@
             android:backgroundTint="@color/background_color">
 
             <EditText
+                android:id="@+id/regEmail"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/transparent">
@@ -143,9 +146,11 @@
             android:backgroundTint="@color/background_color">
 
             <EditText
+                android:id="@+id/regPassword"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/transparent">
+                android:background="@color/transparent"
+                android:inputType="textPassword">
             </EditText>
         </androidx.cardview.widget.CardView>
 

@@ -106,57 +106,58 @@
                 android:textAlignment="center"
                 android:textColor="@color/tertiary_color"/>
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/clKalendar"
-                android:layout_width="300dp"
-                android:layout_height="105dp"
-                android:layout_margin="20dp"
-                android:layout_gravity="center"
-                android:background="@drawable/square"
-                android:backgroundTint="@color/primary_color">
+<!--            <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                android:id="@+id/clKalendar"-->
+<!--                android:layout_width="300dp"-->
+<!--                android:layout_height="105dp"-->
+<!--                android:layout_margin="20dp"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:background="@drawable/square"-->
+<!--                android:backgroundTint="@color/primary_color">-->
 
-                <LinearLayout
-                    android:id="@+id/llKalendar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent">
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/llKalendar"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:orientation="vertical"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toTopOf="parent"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintBottom_toBottomOf="parent">-->
 
-                    <ImageView
-                        android:id="@+id/imgKalendar"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/logo_kalender">
+<!--                    <ImageView-->
+<!--                        android:id="@+id/imgKalendar"-->
+<!--                        android:layout_width="40dp"-->
+<!--                        android:layout_height="40dp"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:src="@drawable/logo_kalender">-->
 
-                    </ImageView>
+<!--                    </ImageView>-->
 
-                    <TextView
-                        android:id="@+id/tvKalendar"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:fontFamily="@font/nunito_bold"
-                        android:text="Kalendar"
-                        android:textSize="16sp"
-                        android:textColor="@color/white"
-                        android:textAlignment="center"
-                        android:gravity="center">
+<!--                    <TextView-->
+<!--                        android:id="@+id/tvKalendar"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="5dp"-->
+<!--                        android:fontFamily="@font/nunito_bold"-->
+<!--                        android:text="Kalendar"-->
+<!--                        android:textSize="16sp"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:textAlignment="center"-->
+<!--                        android:gravity="center">-->
 
-                    </TextView>
+<!--                    </TextView>-->
 
-                </LinearLayout>
+<!--                </LinearLayout>-->
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+<!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/clCatatan"
                 android:layout_width="300dp"
                 android:layout_height="105dp"
-                android:layout_margin="20dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginBottom="10dp"
                 android:layout_gravity="center"
                 android:background="@drawable/square"
                 android:backgroundTint="@color/primary_color">
@@ -176,7 +177,7 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/logo_kalender">
+                        android:src="@drawable/logo_catatan">
 
                     </ImageView>
 
@@ -222,7 +223,8 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/logo_kalender">
+                        android:src="@drawable/logo_kutip"
+                        android:backgroundTint="@color/white">
 
                     </ImageView>
 
@@ -249,12 +251,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:layout_gravity="center"
+                android:layout_marginTop="70dp"
                 android:backgroundTint="@color/primary_color"
                 android:background="@drawable/square"
-                android:fontFamily="@font/roboto_medium"
+                android:fontFamily="@font/nunito_extrabold"
                 android:text="Logout"
                 android:textColor="@color/white"
-                android:textSize="12sp">
+                android:textSize="12sp"
+                android:textAllCaps="false">
             </android.widget.Button>
 
         </LinearLayout>

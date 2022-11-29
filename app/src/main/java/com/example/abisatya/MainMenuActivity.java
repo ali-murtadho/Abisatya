@@ -21,6 +21,7 @@ public class MainMenuActivity extends AppCompatActivity {
 
         btnLogout = findViewById(R.id.mm_btnLogout);
         lCatatan = findViewById(R.id.clCatatan);
+        lSisiAbisatya = findViewById(R.id.clSisiAbisatya);
 
         lCatatan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -29,6 +30,15 @@ public class MainMenuActivity extends AppCompatActivity {
                 startActivity(catat);
             }
         });
+
+        lSisiAbisatya.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent sisi = new Intent(MainMenuActivity.this, SisiAbisatyaActivity.class);
+                startActivity(sisi);
+            }
+        });
+
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

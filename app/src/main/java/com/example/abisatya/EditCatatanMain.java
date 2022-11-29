@@ -10,16 +10,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class IsiCatatanActivity extends AppCompatActivity {
+public class EditCatatanMain extends AppCompatActivity {
     private ImageView ibtnBack;
-    private TextView nCatatan;
+    private EditText nCatatan;
     private TextView finishnote;
     Database db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         getSupportActionBar().hide();
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_isi_catatan);
+        setContentView(R.layout.activity_edit_catatan_main);
         finishnote = findViewById(R.id.tvSelesai);
         nCatatan = findViewById(R.id.etCatatan);
         ibtnBack = findViewById(R.id.btnBack);
@@ -27,7 +27,7 @@ public class IsiCatatanActivity extends AppCompatActivity {
         ibtnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent catatan = new Intent(IsiCatatanActivity.this, CatatanActivity.class);
+                Intent catatan = new Intent(EditCatatanMain.this, CatatanActivity.class);
                 startActivity(catatan);
             }
         });
@@ -36,15 +36,15 @@ public class IsiCatatanActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String ambilCatatan = nCatatan.getText().toString();
                 if (ambilCatatan.equals("")){
-                    Toast.makeText(IsiCatatanActivity.this, "Catatan belum ditambahkan", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EditCatatanMain.this, "Catatan belum ditambahkan", Toast.LENGTH_SHORT).show();
                 }else {
                     Boolean insertNote = db.insertNote(ambilCatatan);
                     if (insertNote == true){
-                        Toast.makeText(IsiCatatanActivity.this, "Catatan berhasil ditambahkan", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(IsiCatatanActivity.this, MainMenuActivity.class);
+                        Toast.makeText(EditCatatanMain.this, "Catatan berhasil ditambahkan", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(EditCatatanMain.this, MainMenuActivity.class);
                         startActivity(intent);
                     }else {
-                        Toast.makeText(IsiCatatanActivity.this, "Catatan Gagal ditambahkan", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(EditCatatanMain.this, "Catatan Gagal ditambahkan", Toast.LENGTH_SHORT).show();
                     }
                 }
             }

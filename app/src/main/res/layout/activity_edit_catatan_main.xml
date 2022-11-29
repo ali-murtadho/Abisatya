@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TambahCatatanActivity">
+    tools:context=".EditCatatanMain">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/header"
@@ -40,16 +40,17 @@
                 </ImageView>
 
                 <TextView
-                    android:id="@+id/tvSave"
+                    android:id="@+id/tvSelesai"
                     android:layout_width="wrap_content"
-                    android:layout_height="20dp"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginLeft="220dp"
                     android:layout_marginTop="10dp"
+                    android:layout_marginLeft="210dp"
                     android:layout_marginRight="25dp"
-                    android:fontFamily="@font/nunito_bold"
                     android:text="Selesai"
-                    android:textSize="16sp"></TextView>
+                    android:textSize="18sp"
+                    android:fontFamily="@font/nunito_bold">
+                </TextView>
 
             </LinearLayout>
 
@@ -66,8 +67,8 @@
 
                 <LinearLayout
                     android:id="@+id/llCatatanSatu"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_gravity="center"
                     app:layout_constraintStart_toStartOf="parent"
@@ -80,16 +81,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="30dp"
                         android:fontFamily="@font/nunito_bold"
-                        android:hint="Judul"
+                        android:hint="Halo!"
                         android:textAlignment="center"
                         android:textSize="24sp"
-                        android:textColor="@color/white"
                         android:textColorHint="@color/white"
                         android:layout_margin="10dp"
                         android:background="@color/transparent">
 
                     </EditText>
-
 
                 </LinearLayout>
 
@@ -111,14 +110,13 @@
         app:cardCornerRadius="15dp">
 
         <EditText
-            android:id="@+id/etTeksDiary"
+            android:id="@+id/etCatatan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:textSize="12sp"
-            android:hint="Tulis Disini"
             android:textColor="@color/primary_color"
-            android:textColorHint="@color/primary_color"
+            android:text="Halo Catatan Satu Catatan Halo Catatan Satu Catatan Halo Catatan Satu Catatan Halo Catatan Satu Catatan satu Catatan Satu Catatan satu Catatan Satu Catatan satu Catatan Satu Catatan satu"
             android:background="@color/transparent">
         </EditText>
 
@@ -223,6 +221,6 @@
 
         </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
 
+    </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

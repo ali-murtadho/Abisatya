@@ -24,12 +24,21 @@ public class CatatanActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_catatan);
 
+        cCatatan = findViewById(R.id.cvCatatan);
+        cCatatan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent lihat = new Intent(CatatanActivity.this, IsiCatatanActivity.class);
+                startActivity(lihat);
+            }
+        });
+
         btnEdit = findViewById(R.id.btnEdit);
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent catatan = new Intent(CatatanActivity.this, IsiCatatanActivity.class);
-                startActivity(catatan);
+                Intent edit = new Intent(CatatanActivity.this, EditCatatanMain.class);
+                startActivity(edit);
             }
         });
 
@@ -37,8 +46,8 @@ public class CatatanActivity extends AppCompatActivity {
         ibtnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent catatan = new Intent(CatatanActivity.this, MainMenuActivity.class);
-                startActivity(catatan);
+                Intent back = new Intent(CatatanActivity.this, MainMenuActivity.class);
+                startActivity(back);
             }
         });
 
@@ -46,8 +55,8 @@ public class CatatanActivity extends AppCompatActivity {
         ibtnPlus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent catatan = new Intent(CatatanActivity.this, TambahCatatanActivity.class);
-                startActivity(catatan);
+                Intent tambah = new Intent(CatatanActivity.this, TambahCatatanActivity.class);
+                startActivity(tambah);
             }
         });
 

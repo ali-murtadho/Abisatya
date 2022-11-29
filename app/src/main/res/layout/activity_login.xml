@@ -82,7 +82,7 @@
                     android:layout_height="match_parent"
                     android:paddingLeft="10dp"
                     android:hint="Email"
-                    android:textSize="12sp"
+                    android:textSize="10sp"
                     android:fontFamily="@font/roboto"
                     android:background="@color/transparent"
                     android:textColorHint="@color/secondary_color">
@@ -126,7 +126,8 @@
                     android:layout_height="match_parent"
                     android:paddingLeft="10dp"
                     android:hint="Password"
-                    android:textSize="12sp"
+                    android:inputType="textPassword"
+                    android:textSize="10sp"
                     android:fontFamily="@font/roboto"
                     android:background="@color/transparent"
                     android:textColorHint="@color/secondary_color">

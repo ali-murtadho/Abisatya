@@ -129,7 +129,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/clImport"
                 android:layout_width="310dp"
-                android:layout_height="60dp"
+                android:layout_height="40dp"
                 android:layout_margin="15dp"
                 android:background="@drawable/square"
                 android:backgroundTint="@color/primary_color"
@@ -137,7 +137,7 @@
 
                 <LinearLayout
                     android:id="@+id/llFileImport"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_gravity="center"
@@ -146,74 +146,89 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent">
 
-                    <ImageView
-                        android:id="@+id/imgMedia"
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/logo_media">
-                    </ImageView>
+                    <EditText
+                        android:id="@+id/etWaktu"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:fontFamily="@font/nunito_bold"
+                        android:hint="Waktu"
+                        android:textAlignment="center"
+                        android:textSize="16sp"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white"
+                        android:layout_margin="5dp"
+                        android:background="@color/transparent">
 
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="240dp"
-                        android:layout_height="42dp"
-                        android:layout_marginLeft="15dp"
-                        android:layout_gravity="center"
-                        android:background="@drawable/media"
-                        android:backgroundTint="@color/import_color"
-                        app:cardCornerRadius="300dp">
+                    </EditText>
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="horizontal"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintBottom_toBottomOf="parent">
+<!--                    <ImageView-->
+<!--                        android:id="@+id/imgMedia"-->
+<!--                        android:layout_width="28dp"-->
+<!--                        android:layout_height="28dp"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:src="@drawable/logo_media">-->
+<!--                    </ImageView>-->
 
-                            <ImageView
-                                android:id="@+id/imgImage"
-                                android:layout_width="28dp"
-                                android:layout_height="28dp"
-                                android:layout_marginLeft="20dp"
-                                android:layout_gravity="center"
-                                android:src="@drawable/logo_image">
-                            </ImageView>
-                            <ImageView
-                                android:id="@+id/imgVideo"
-                                android:layout_width="28dp"
-                                android:layout_height="28dp"
-                                android:layout_margin="15dp"
-                                android:layout_gravity="center"
-                                android:src="@drawable/logo_video">
-                            </ImageView>
-                            <ImageView
-                                android:id="@+id/imgAudio"
-                                android:layout_width="28dp"
-                                android:layout_height="28dp"
-                                android:layout_gravity="center"
-                                android:src="@drawable/logo_audio">
-                            </ImageView>
-                            <ImageView
-                                android:id="@+id/imgPDF"
-                                android:layout_width="28dp"
-                                android:layout_height="28dp"
-                                android:layout_margin="15dp"
-                                android:layout_gravity="center"
-                                android:src="@drawable/logo_pdf">
-                            </ImageView>
-                            <ImageView
-                                android:id="@+id/imgLainnya"
-                                android:layout_width="28dp"
-                                android:layout_height="28dp"
-                                android:layout_gravity="center"
-                                android:src="@drawable/logo_lainnya">
-                            </ImageView>
+<!--                    <androidx.cardview.widget.CardView-->
+<!--                        android:layout_width="240dp"-->
+<!--                        android:layout_height="42dp"-->
+<!--                        android:layout_marginLeft="15dp"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:background="@drawable/media"-->
+<!--                        android:backgroundTint="@color/import_color"-->
+<!--                        app:cardCornerRadius="300dp">-->
 
-                        </LinearLayout>
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:orientation="horizontal"-->
+<!--                            app:layout_constraintStart_toStartOf="parent"-->
+<!--                            app:layout_constraintTop_toTopOf="parent"-->
+<!--                            app:layout_constraintEnd_toEndOf="parent"-->
+<!--                            app:layout_constraintBottom_toBottomOf="parent">-->
 
-                    </androidx.cardview.widget.CardView>
+<!--                            <ImageView-->
+<!--                                android:id="@+id/imgImage"-->
+<!--                                android:layout_width="28dp"-->
+<!--                                android:layout_height="28dp"-->
+<!--                                android:layout_marginLeft="20dp"-->
+<!--                                android:layout_gravity="center"-->
+<!--                                android:src="@drawable/logo_image">-->
+<!--                            </ImageView>-->
+<!--                            <ImageView-->
+<!--                                android:id="@+id/imgVideo"-->
+<!--                                android:layout_width="28dp"-->
+<!--                                android:layout_height="28dp"-->
+<!--                                android:layout_margin="15dp"-->
+<!--                                android:layout_gravity="center"-->
+<!--                                android:src="@drawable/logo_video">-->
+<!--                            </ImageView>-->
+<!--                            <ImageView-->
+<!--                                android:id="@+id/imgAudio"-->
+<!--                                android:layout_width="28dp"-->
+<!--                                android:layout_height="28dp"-->
+<!--                                android:layout_gravity="center"-->
+<!--                                android:src="@drawable/logo_audio">-->
+<!--                            </ImageView>-->
+<!--                            <ImageView-->
+<!--                                android:id="@+id/imgPDF"-->
+<!--                                android:layout_width="28dp"-->
+<!--                                android:layout_height="28dp"-->
+<!--                                android:layout_margin="15dp"-->
+<!--                                android:layout_gravity="center"-->
+<!--                                android:src="@drawable/logo_pdf">-->
+<!--                            </ImageView>-->
+<!--                            <ImageView-->
+<!--                                android:id="@+id/imgLainnya"-->
+<!--                                android:layout_width="28dp"-->
+<!--                                android:layout_height="28dp"-->
+<!--                                android:layout_gravity="center"-->
+<!--                                android:src="@drawable/logo_lainnya">-->
+<!--                            </ImageView>-->
+
+<!--                        </LinearLayout>-->
+
+<!--                    </androidx.cardview.widget.CardView>-->
 
                 </LinearLayout>
 

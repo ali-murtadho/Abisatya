@@ -148,7 +148,7 @@
 
                     <androidx.cardview.widget.CardView
                         android:id="@+id/cvCatatan"
-                        android:layout_width="150dp"
+                        android:layout_width="230dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"
@@ -183,37 +183,55 @@
                                 android:text="Halo Catatan Satu Catatan Halo Catatan Satu Catatan Halo Catatan Satu Catatan Halo Catatan Satu Catatan satu Catatan Satu Catatan satu Catatan Satu Catatan satu Catatan Satu Catatan satu"
                                 android:textSize="10sp"
                                 android:textColor="@color/tertiary_color">
-
                             </TextView>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/nunito_extrabold"
+                                android:text="30 November 2022"
+                                android:textSize="10sp"
+                                android:layout_gravity="end"
+                                android:textColor="@color/secondary_color">
+                            </TextView>
+
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
 
-                    <android.widget.Button
-                        android:id="@+id/btnEditNote"
-                        android:layout_width="70dp"
-                        android:layout_height="30dp"
-                        android:layout_gravity="center"
-                        android:background="@drawable/square"
-                        android:backgroundTint="@color/primary_color"
-                        android:fontFamily="@font/roboto_bold"
-                        android:text="Edit"
-                        android:textColor="@color/white"
-                        android:textSize="12sp">
-                    </android.widget.Button>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_gravity="center">
 
-                    <android.widget.Button
-                        android:id="@+id/btnHapusNote"
-                        android:layout_width="70dp"
-                        android:layout_height="30dp"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="4dp"
-                        android:background="@drawable/square"
-                        android:backgroundTint="@color/primary_color"
-                        android:fontFamily="@font/roboto_bold"
-                        android:text="Hapus"
-                        android:textColor="@color/white"
-                        android:textSize="12sp">
-                    </android.widget.Button>
+                        <android.widget.Button
+                            android:id="@+id/btnEditNote"
+                            android:layout_width="70dp"
+                            android:layout_height="30dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/square"
+                            android:backgroundTint="@color/primary_color"
+                            android:fontFamily="@font/roboto_bold"
+                            android:text="Edit"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            android:textAllCaps="false">
+                        </android.widget.Button>
+
+                        <android.widget.Button
+                            android:id="@+id/btnHapusNote"
+                            android:layout_width="70dp"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/square"
+                            android:backgroundTint="@color/primary_color"
+                            android:fontFamily="@font/roboto_bold"
+                            android:text="Hapus"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            android:textAllCaps="false">
+                        </android.widget.Button>
+                    </LinearLayout>
                 </LinearLayout>
             </FrameLayout>
 

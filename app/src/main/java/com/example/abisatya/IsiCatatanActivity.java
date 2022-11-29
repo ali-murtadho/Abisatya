@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 public class IsiCatatanActivity extends AppCompatActivity {
     private ImageView ibtnBack;
-    private TextView nCatatan;
+    private TextView nCatatan, nJudul;
     private TextView finishnote;
     Database db;
     @Override
@@ -23,6 +23,7 @@ public class IsiCatatanActivity extends AppCompatActivity {
         finishnote = findViewById(R.id.tvSelesai);
         nCatatan = findViewById(R.id.etCatatan);
         ibtnBack = findViewById(R.id.btnBack);
+        nJudul = findViewById(R.id.etJudul);
         db = new Database(this);
         ibtnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,10 +36,11 @@ public class IsiCatatanActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String ambilCatatan = nCatatan.getText().toString();
+                String ambilJudul = nJudul.getText().toString();
                 if (ambilCatatan.equals("")){
                     Toast.makeText(IsiCatatanActivity.this, "Catatan belum ditambahkan", Toast.LENGTH_SHORT).show();
                 }else {
-                    Boolean insertNote = db.insertNote(ambilCatatan);
+                    Boolean insertNote = db.insertNote(ambilJudul, ambilCatatan);
                     if (insertNote == true){
                         Toast.makeText(IsiCatatanActivity.this, "Catatan berhasil ditambahkan", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(IsiCatatanActivity.this, MainMenuActivity.class);

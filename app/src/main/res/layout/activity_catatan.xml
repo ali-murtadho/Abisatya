@@ -189,7 +189,7 @@
                     </androidx.cardview.widget.CardView>
 
                     <android.widget.Button
-                        android:id="@+id/btnEdit"
+                        android:id="@+id/btnEditNote"
                         android:layout_width="70dp"
                         android:layout_height="30dp"
                         android:layout_gravity="center"
@@ -202,7 +202,7 @@
                     </android.widget.Button>
 
                     <android.widget.Button
-                        android:id="@+id/btnHapus"
+                        android:id="@+id/btnHapusNote"
                         android:layout_width="70dp"
                         android:layout_height="30dp"
                         android:layout_gravity="center"

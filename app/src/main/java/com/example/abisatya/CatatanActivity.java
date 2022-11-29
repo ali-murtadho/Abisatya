@@ -15,8 +15,9 @@ import android.widget.TextView;
 
 public class CatatanActivity extends AppCompatActivity {
     CardView cCatatan;
-    Button btnEdit;
+    Button btnEdit, btnDelete;
     ImageView ibtnBack, ibtnPlus;
+    private Database db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +33,9 @@ public class CatatanActivity extends AppCompatActivity {
                 startActivity(lihat);
             }
         });
-
-        btnEdit = findViewById(R.id.btnEdit);
+        db = new Database(this);
+        btnDelete = findViewById(R.id.btnHapusNote);
+        btnEdit = findViewById(R.id.btnEditNote);
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

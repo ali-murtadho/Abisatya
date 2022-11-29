@@ -37,5 +37,40 @@
         </TextView>
 
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:text="H1D020011"
+            android:textColor="@color/primary_color"
+            android:textAlignment="center">
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:text="H1D020028"
+            android:textColor="@color/primary_color"
+            android:textAlignment="center">
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:text="H1D020054"
+            android:textColor="@color/primary_color"
+            android:textAlignment="center">
+        </TextView>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,8 +11,10 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 public class MainMenuActivity extends AppCompatActivity {
-    private ConstraintLayout lKalendar, lCatatan, lSisiAbisatya;
+    private ConstraintLayout lCatatan, lSisiAbisatya;
     private Button btnLogout;
+    private ImageView ibtnProfil;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         getSupportActionBar().hide();
@@ -22,6 +24,15 @@ public class MainMenuActivity extends AppCompatActivity {
         btnLogout = findViewById(R.id.mm_btnLogout);
         lCatatan = findViewById(R.id.clCatatan);
         lSisiAbisatya = findViewById(R.id.clSisiAbisatya);
+
+        ibtnProfil = findViewById(R.id.imgProfil);
+        ibtnProfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent profil = new Intent(MainMenuActivity.this, ProfilActivity.class);
+                startActivity(profil);
+            }
+        });
 
         lCatatan.setOnClickListener(new View.OnClickListener() {
             @Override

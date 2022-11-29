@@ -26,7 +26,7 @@ public class MainMenuActivity extends AppCompatActivity {
         lCatatan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent catat = new Intent(MainMenuActivity.this, CatatanActivity.class);
+                Intent catat = new Intent(MainMenuActivity.this, TambahCatatanActivity.class);
                 startActivity(catat);
             }
         });

@@ -37,19 +37,8 @@ public class IsiCatatanActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String ambilCatatan = nCatatan.getText().toString();
                 String ambilJudul = nJudul.getText().toString();
-                if (ambilCatatan.equals("")){
-                    Toast.makeText(IsiCatatanActivity.this, "Catatan belum ditambahkan", Toast.LENGTH_SHORT).show();
-                }else {
-                    Boolean insertNote = db.insertNote(ambilJudul, ambilCatatan);
-                    if (insertNote == true){
-                        Toast.makeText(IsiCatatanActivity.this, "Catatan berhasil ditambahkan", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(IsiCatatanActivity.this, MainMenuActivity.class);
-                        startActivity(intent);
-                    }else {
-                        Toast.makeText(IsiCatatanActivity.this, "Catatan Gagal ditambahkan", Toast.LENGTH_SHORT).show();
-                    }
-                }
-            }
+
+                        }
         });
     }
 }

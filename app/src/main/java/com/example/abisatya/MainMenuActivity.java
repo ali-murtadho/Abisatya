@@ -13,12 +13,14 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.material.imageview.ShapeableImageView;
+
 import java.io.IOException;
 
 public class MainMenuActivity extends AppCompatActivity {
     private ConstraintLayout lCatatan, lSisiAbisatya;
     private Button btnLogout;
-    private ImageView ibtnProfil;
+    private ShapeableImageView ibtnProfil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

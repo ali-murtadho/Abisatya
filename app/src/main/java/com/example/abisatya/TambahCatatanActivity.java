@@ -13,9 +13,8 @@ import android.widget.Toast;
 public class TambahCatatanActivity extends AppCompatActivity {
     private ImageView ibtnBack;
     private EditText nCatatan, nJudulC;
-    private Database db;
     private TextView btnSimpan;
-
+    DatabaseNote db = new DatabaseNote(this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         getSupportActionBar().hide();
@@ -24,7 +23,6 @@ public class TambahCatatanActivity extends AppCompatActivity {
         nCatatan = findViewById(R.id.etCatatan);
         nJudulC = findViewById(R.id.etJudul);
         btnSimpan = findViewById(R.id.tvSave);
-        db = new Database(this);
         ibtnBack = findViewById(R.id.btnBack);
         ibtnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,19 +34,15 @@ public class TambahCatatanActivity extends AppCompatActivity {
         btnSimpan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String judul = nJudulC.getText().toString().trim();
-                String catat = nCatatan.getText().toString().trim();
-                if (judul.equals("") || catat.equals("")) {
-                    Toast.makeText(TambahCatatanActivity.this, "Catatan Masih ada yang kosong", Toast.LENGTH_SHORT).show();
-                } else {
-                    Boolean insertnote = db.insertNote(judul, catat);
-                    if (insertnote == true) {
+                String judul = nJudulC.getText().toString();
+                String catat = nCatatan.getText().toString();
+                Boolean insertnote = db.CreateNote(judul, catat);
+                    if (insertnote) {
                         Toast.makeText(TambahCatatanActivity.this, "Berhasil menambahkan catatan", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(TambahCatatanActivity.this, CatatanActivity.class);
                         startActivity(intent);
                     }else {
                         Toast.makeText(TambahCatatanActivity.this, "Data Gagal ditambah", Toast.LENGTH_SHORT).show();
-                    }
                 }
             }
         });

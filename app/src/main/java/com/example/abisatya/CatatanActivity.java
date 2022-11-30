@@ -3,8 +3,11 @@ package com.example.abisatya;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.text.InputFilter;
 import android.view.View;
@@ -12,20 +15,36 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class CatatanActivity extends AppCompatActivity {
     CardView cCatatan;
     Button btnEdit, btnDelete;
     ImageView ibtnBack, ibtnPlus;
-    private Database db;
-
+    DatabaseNote db;
+    ArrayList<String> judulNote, catatanNote;
+    RecyclerView recyclerView;
+    CustomAdapter customAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         getSupportActionBar().hide();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_catatan);
-
+        db = new DatabaseNote(this);
+        btnDelete = findViewById(R.id.btnHapusNote);
+        ibtnPlus = findViewById(R.id.btnPlus);
+        btnEdit = findViewById(R.id.btnEditNote);
+        ibtnBack = findViewById(R.id.btnBack);
+        recyclerView = findViewById(R.id.recylclerview1);
+        judulNote = new ArrayList<>();
+        catatanNote = new ArrayList<>();
         cCatatan = findViewById(R.id.cvCatatan);
+        tampilData();
+        customAdapter = new CustomAdapter(CatatanActivity.this, judulNote, catatanNote);
+        recyclerView.setAdapter(customAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(CatatanActivity.this));
         cCatatan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -33,9 +52,8 @@ public class CatatanActivity extends AppCompatActivity {
                 startActivity(lihat);
             }
         });
-        db = new Database(this);
-        btnDelete = findViewById(R.id.btnHapusNote);
-        btnEdit = findViewById(R.id.btnEditNote);
+
+
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -43,8 +61,6 @@ public class CatatanActivity extends AppCompatActivity {
                 startActivity(edit);
             }
         });
-
-        ibtnBack = findViewById(R.id.btnBack);
         ibtnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -52,8 +68,6 @@ public class CatatanActivity extends AppCompatActivity {
                 startActivity(back);
             }
         });
-
-        ibtnPlus = findViewById(R.id.btnPlus);
         ibtnPlus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,5 +76,17 @@ public class CatatanActivity extends AppCompatActivity {
             }
         });
 
+
+    }
+    void tampilData(){
+        Cursor cursor = db.readNote();
+        if (cursor.getCount() == 0) {
+            Toast.makeText(this, "Tidak ada data", Toast.LENGTH_SHORT).show();
+        } else {
+            while (cursor.moveToNext()) {
+                judulNote.add(cursor.getString(0));
+                catatanNote.add(cursor.getString(1));
+            }
+        }
     }
 }

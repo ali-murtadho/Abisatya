@@ -29,7 +29,6 @@ public class DaftarAkunActivity extends AppCompatActivity {
         nTelepon = findViewById(R.id.regTelepon);
         ibtnBack = findViewById(R.id.btnBack);
         btnDaftar = findViewById(R.id.daftar_btnDaftar);
-
         btnDaftar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

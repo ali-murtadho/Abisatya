@@ -25,10 +25,10 @@ public class ProfilActivity extends AppCompatActivity {
     private boolean change_img_profil = false;
     private String uriString = null;
 
-    private ImageView ibtnBack;
-    private Button btnSimpan;
-    private EditText etTentang, etNama, etTelpon, etEmaill;
-
+    private ImageView ibtnBack, image;
+    private Button btnSimpanAbout;
+    private EditText etAbout, etNama, etTelpon, etEmaill;
+    Database db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         getSupportActionBar().hide();
@@ -44,14 +44,14 @@ public class ProfilActivity extends AppCompatActivity {
                 startActivityForResult(new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI), PROFIL_REQUEST_CODE);
             }
         });
-
-        etTentang = findViewById(R.id.etTentang);
+        db = new Database(this);
+        image = findViewById(R.id.btnImage);
+        etAbout = findViewById(R.id.etTentang);
         etNama = findViewById(R.id.etNama);
         etTelpon = findViewById(R.id.etNoTelpon);
         etEmaill = findViewById(R.id.etEmail);
-
-        btnSimpan = findViewById(R.id.btnSimpan);
-        btnSimpan.setOnClickListener(new View.OnClickListener() {
+        btnSimpanAbout = findViewById(R.id.btnSimpan);
+        btnSimpanAbout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent catatan = new Intent(ProfilActivity.this, ProfilActivity.class);
@@ -60,14 +60,23 @@ public class ProfilActivity extends AppCompatActivity {
                 startActivity(catatan);
             }
         });
-        etTentang.setText(sTentang);
+        //etTentang.setText(sTentang);
 
         ibtnBack = findViewById(R.id.btnBack);
         ibtnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String nama = etNama.getText().toString();
+                String about = etAbout.getText().toString();
+                String telepon = etTelpon.getText().toString();
+                String email = etEmaill.getText().toString();
+                Boolean inProfil = db.insertProfil(email,nama, telepon, about);
+                if (inProfil == true){
                 Intent catatan = new Intent(ProfilActivity.this, MainMenuActivity.class);
                 startActivity(catatan);
+                }else {
+                    Toast.makeText(ProfilActivity.this, "Coba Lagi", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

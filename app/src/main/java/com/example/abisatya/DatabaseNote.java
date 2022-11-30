@@ -11,13 +11,13 @@ import androidx.annotation.Nullable;
 
 public class DatabaseNote extends SQLiteOpenHelper {
     private Context context;
-    private static final String DATABASE_NAME = "abisatya.db";
+    private static final String DATABASE_NAME = "abisatyaNote.db";
     private static final int DATABASE_VERSION = 1;
     private static final String TABLE_NAME = "note";
     private static final String ID = "id";
     private static final String JUDUL = "judul";
     private static final String CATATAN = "catatan";
-    public DatabaseNote(Context context) {
+    public DatabaseNote( Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context = context;
     }
@@ -32,28 +32,29 @@ public class DatabaseNote extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS note");
         onCreate(db);
     }
-    public void insertNote(String judul, String catatan){
+
+    public Boolean CreateNote(String judul, String catatan){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("judul", judul);
         contentValues.put("catatan", catatan);
-        long insert = db.insert(TABLE_NAME, null, contentValues);
+        long insert = db.insert("note", null, contentValues);
         if (insert == -1){
-            Toast.makeText(context, "Gagal", Toast.LENGTH_SHORT).show();
+            return false;
         }else {
-            Toast.makeText(context, "Catatan Sukses ditambah", Toast.LENGTH_SHORT).show();
+            return true;
         }
     }
-    public void updateNote(String judul, String catatan){
+    public Boolean updateNote(String judul, String catatan){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("judul", judul);
         contentValues.put("catatan", catatan);
         long update = db.update(TABLE_NAME, contentValues, "judul=?", new String[]{judul, catatan});
         if (update == -1){
-            Toast.makeText(context, "Gagal", Toast.LENGTH_SHORT).show();
+            return false;
         }else {
-            Toast.makeText(context, "Catatan Sukses ditambah", Toast.LENGTH_SHORT).show();
+            return true;
         }
     }
     Cursor readNote(){
@@ -65,13 +66,13 @@ public class DatabaseNote extends SQLiteOpenHelper {
         }
         return cursor;
     }
-    public void deleteNote(String judul){
+    public Boolean deleteNote(String judul){
         SQLiteDatabase db = this.getWritableDatabase();
         long delete = db.delete(TABLE_NAME,"judul=?", new String[]{judul});
         if (delete == -1){
-            Toast.makeText(context, "Gagal dihapus", Toast.LENGTH_SHORT).show();
+            return false;
         }else {
-            Toast.makeText(context, "Berhasil dihapus", Toast.LENGTH_SHORT).show();
+            return true;
         }
     }
 

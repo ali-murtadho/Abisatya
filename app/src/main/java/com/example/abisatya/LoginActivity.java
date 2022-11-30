@@ -51,8 +51,8 @@ public class LoginActivity extends AppCompatActivity {
         tvDaftar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent catatan = new Intent(LoginActivity.this, DaftarAkunActivity.class);
-                startActivity(catatan);
+                Intent toDaftar = new Intent(LoginActivity.this, DaftarAkunActivity.class);
+                startActivity(toDaftar);
             }
         });
         tvbtnLupa.setOnClickListener(new View.OnClickListener() {

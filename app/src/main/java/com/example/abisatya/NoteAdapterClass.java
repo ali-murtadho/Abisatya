@@ -1,5 +1,4 @@
 package com.example.abisatya;
-
 import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,23 +6,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.List;
-
 public class NoteAdapterClass extends RecyclerView.Adapter<NoteAdapterClass.ViewHolder>{
     List<NoteModelClass> note;
     Context context;
     DatabaseNote db;
-
     public NoteAdapterClass(List<NoteModelClass> note, Context context) {
         this.note = note;
         this.context = context;
         db = new DatabaseNote(context);
     }
-
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

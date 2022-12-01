@@ -34,18 +34,22 @@ public class ResetPasswordActivity extends AppCompatActivity {
 
                 if (password_baru.equals("") || password_baru_confirm.equals("")) {
                     Toast.makeText(ResetPasswordActivity.this, "Tidak boleh kosong", Toast.LENGTH_SHORT).show();
-                }else {
-                    if (password_baru == password_baru_confirm){
+                } else {
+                    if (password_baru.equals(password_baru_confirm)) {
                         Boolean updatePass = db.updatePassword(password_baru);
-                        Toast.makeText(ResetPasswordActivity.this, "Berhasil Reset Password", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(ResetPasswordActivity.this, BerhasilGantiActivity.class);
-                        startActivity(intent);
-                    }else{
+                        if (updatePass = true) {
+                            Toast.makeText(ResetPasswordActivity.this, "Berhasil Reset Password", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(ResetPasswordActivity.this, BerhasilGantiActivity.class);
+                            startActivity(intent);
+                        } else {
+                            Toast.makeText(ResetPasswordActivity.this, "Gagal Reset Password", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
                         Toast.makeText(ResetPasswordActivity.this, "Password harus sama", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
-        });
+    });
         ibtnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

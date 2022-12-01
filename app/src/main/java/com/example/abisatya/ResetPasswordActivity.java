@@ -35,17 +35,13 @@ public class ResetPasswordActivity extends AppCompatActivity {
                 if (password_baru.equals("") || password_baru_confirm.equals("")) {
                     Toast.makeText(ResetPasswordActivity.this, "Tidak boleh kosong", Toast.LENGTH_SHORT).show();
                 }else {
-                    if (password_baru != password_baru_confirm){
-                        Toast.makeText(ResetPasswordActivity.this, "password harus sama", Toast.LENGTH_SHORT).show();
+                    if (password_baru == password_baru_confirm){
+                        Boolean updatePass = db.updatePassword(password_baru);
+                        Toast.makeText(ResetPasswordActivity.this, "Berhasil Reset Password", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(ResetPasswordActivity.this, BerhasilGantiActivity.class);
+                        startActivity(intent);
                     }else{
-                        Boolean updateP = db.updatePassword(password_baru);
-                        if (updateP == true){
-                            Toast.makeText(ResetPasswordActivity.this, "Berhasil Reset Password", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(ResetPasswordActivity.this, BerhasilGantiActivity.class);
-                            startActivity(intent);
-                        }else {
-                            Toast.makeText(ResetPasswordActivity.this, "Gagal reset password", Toast.LENGTH_SHORT).show();
-                        }
+                        Toast.makeText(ResetPasswordActivity.this, "Password harus sama", Toast.LENGTH_SHORT).show();
                     }
                 }
             }

@@ -9,6 +9,9 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DatabaseNote extends SQLiteOpenHelper {
     private Context context;
     private static final String DATABASE_NAME = "abisatyaNote.db";
@@ -17,14 +20,15 @@ public class DatabaseNote extends SQLiteOpenHelper {
     private static final String ID = "id";
     private static final String JUDUL = "judul";
     private static final String CATATAN = "catatan";
+    private String query = "CREATE TABLE note (id INTEGER PRIMARY KEY AUTOINCREMENT, judul TEXT, catatan TEXT)";
+
     public DatabaseNote( Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-        this.context = context;
+        //this.context = context;
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String query = "CREATE TABLE note (id INTEGER PRIMARY KEY AUTOINCREMENT, judul TEXT, catatan TEXT)";
         db.execSQL(query);
     }
     @Override
@@ -74,6 +78,23 @@ public class DatabaseNote extends SQLiteOpenHelper {
         }else {
             return true;
         }
+    }
+
+    public List<NoteModelClass> getNoteList(){
+        String sql = "SELECT * FROM note";
+        SQLiteDatabase dbRead= this.getReadableDatabase();
+        List<NoteModelClass> storeNote = new ArrayList<>();
+        Cursor cursor = dbRead.rawQuery(sql, null);
+        if (cursor.moveToFirst()){
+            do {
+                int id = Integer.parseInt(cursor.getString(0));
+                String judul = cursor.getString(1);
+                String catatan = cursor.getString(2);
+                storeNote.add(new NoteModelClass(id, judul, catatan));
+            }while (cursor.moveToNext());
+        }
+        cursor.close();
+        return storeNote;
     }
 
 }

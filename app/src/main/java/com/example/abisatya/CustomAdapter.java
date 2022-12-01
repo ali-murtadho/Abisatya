@@ -1,10 +1,16 @@
 package com.example.abisatya;
 
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,27 +18,28 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> {
-    private Context context;
-    private ArrayList judul, catatan;
-
-
+    Context context;
+    ArrayList judul, catatan;
+    DatabaseNote db;
     CustomAdapter(Context context, ArrayList judul, ArrayList catatan){
-        this.context = context;
-        this.judul = judul;
         this.catatan = catatan;
+        this.judul = judul;
+        this.context = context;
     }
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.activity_catatan, parent, false);
+        LayoutInflater layoutInflater = LayoutInflater.from(context);
+        View view = layoutInflater.inflate(R.layout.tampilan, parent, false);
         return new MyViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.etJudul.setText(String.valueOf(judul.get(position)));
-        holder.etCatatan.setText(String.valueOf(catatan.get(position)));
+        holder.tvJudul.setText(String.valueOf(judul.get(position)));
+        holder.tvCatatan.setText(String.valueOf(catatan.get(position)));
+
+
     }
 
     @Override
@@ -41,11 +48,16 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView etJudul, etCatatan;
+        TextView tvJudul, tvCatatan;
+        Button btnDelete, btnEdit;
+
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            etJudul = itemView.findViewById(R.id.etJudulHome);
-            etCatatan = itemView.findViewById(R.id.etCatatanHome);
+
+            tvCatatan = itemView.findViewById(R.id.tvCatatanHome);
+            tvJudul = itemView.findViewById(R.id.tvJudulHome);
+            btnDelete = itemView.findViewById(R.id.btnHapusNote);
+            btnEdit = itemView.findViewById(R.id.btnEditNote);
         }
     }
 }

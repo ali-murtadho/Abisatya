@@ -82,6 +82,7 @@
                     android:layout_height="match_parent"
                     android:paddingLeft="10dp"
                     android:hint="Email"
+                    android:inputType="textEmailAddress"
                     android:textSize="8sp"
                     android:fontFamily="@font/roboto"
                     android:background="@color/transparent"

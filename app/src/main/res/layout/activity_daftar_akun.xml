@@ -75,7 +75,13 @@
                 android:id="@+id/regNama"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/transparent">
+                android:layout_marginLeft="10dp"
+                android:textSize="12sp"
+                android:hint="Masukkan Nama"
+                android:fontFamily="@font/roboto"
+                android:background="@color/transparent"
+                android:textColorHint="@color/secondary_color"
+                android:inputType="text">
             </EditText>
         </androidx.cardview.widget.CardView>
 
@@ -100,7 +106,13 @@
                 android:id="@+id/regTelepon"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/transparent">
+                android:layout_marginLeft="10dp"
+                android:textSize="12sp"
+                android:hint="Masukkan Nomer Telepon"
+                android:fontFamily="@font/roboto"
+                android:background="@color/transparent"
+                android:textColorHint="@color/secondary_color"
+                android:inputType="phone">
             </EditText>
         </androidx.cardview.widget.CardView>
         <TextView
@@ -124,7 +136,13 @@
                 android:id="@+id/regEmail"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/transparent">
+                android:layout_marginLeft="10dp"
+                android:textSize="12sp"
+                android:hint="Masukkan Email"
+                android:fontFamily="@font/roboto"
+                android:background="@color/transparent"
+                android:textColorHint="@color/secondary_color"
+                android:inputType="textEmailAddress">
             </EditText>
         </androidx.cardview.widget.CardView>
 
@@ -149,7 +167,12 @@
                 android:id="@+id/regPassword"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:textSize="12sp"
+                android:hint="Masukkan Password"
+                android:fontFamily="@font/roboto"
                 android:background="@color/transparent"
+                android:textColorHint="@color/secondary_color"
                 android:inputType="textPassword">
             </EditText>
         </androidx.cardview.widget.CardView>

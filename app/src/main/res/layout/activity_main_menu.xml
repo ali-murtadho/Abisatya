@@ -66,9 +66,10 @@
                     android:textSize="12sp" />
 
                 <TextView
-                    android:id="@+id/tvNama"
+                    android:id="@+id/mm_tvNama"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
                     android:fontFamily="@font/nunito"
                     android:text=" Nama!"
                     android:textColor="@color/tertiary_color"

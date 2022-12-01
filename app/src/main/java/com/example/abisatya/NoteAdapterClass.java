@@ -1,5 +1,6 @@
 package com.example.abisatya;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,10 +34,31 @@ public class NoteAdapterClass extends RecyclerView.Adapter<NoteAdapterClass.View
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder holder,final int position) {
         final NoteModelClass noteModelClass = note.get(position);
         holder.tvCatatan.setText(noteModelClass.getCatatan());
         holder.tvJudul.setText(noteModelClass.getJudul());
+
+        holder.btnEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String strJudul = holder.tvJudul.getText().toString();
+                String strCatatan = holder.tvCatatan.getText().toString();
+
+                db.updateNote(new NoteModelClass(noteModelClass.getId(), strJudul, strCatatan));
+                notifyDataSetChanged();
+                ((Activity) context).finish();
+                context.startActivity(((Activity) context).getIntent());
+            }
+        });
+        holder.btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                db.deleteNote(noteModelClass.getId());
+                note.remove(position);
+                notifyDataSetChanged();
+            }
+        });
 
     }
 
@@ -51,7 +73,7 @@ public class NoteAdapterClass extends RecyclerView.Adapter<NoteAdapterClass.View
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvWaktu = itemView.findViewById(R.id.waktu);
+            //tvWaktu = itemView.findViewById(R.id.waktu);
             tvJudul = itemView.findViewById(R.id.tvJudulHome);
             tvCatatan = itemView.findViewById(R.id.tvCatatanHome);
             btnDelete = itemView.findViewById(R.id.btnHapusNote);

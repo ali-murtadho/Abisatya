@@ -28,6 +28,7 @@ public class CatatanActivity extends AppCompatActivity {
     RecyclerView recyclerView1;
     ArrayList<String> judul, catatan;
     CustomAdapter customAdapter;
+    NoteAdapterClass noteAdapterClass;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         getSupportActionBar().hide();
@@ -57,9 +58,9 @@ public class CatatanActivity extends AppCompatActivity {
         customAdapter = new CustomAdapter(CatatanActivity.this, judul, catatan);
         recyclerView1.setAdapter(customAdapter);
         recyclerView1.setLayoutManager(new LinearLayoutManager(CatatanActivity.this));
-//        recyclerView1.setLayoutManager(new LinearLayoutManager(this));
-//        recyclerView1.setHasFixedSize(true);
+        recyclerView1.setHasFixedSize(true);
 
+        List<NoteModelClass> noteModelClasses = db.getNoteList();
 
 
 //        List<NoteModelClass> noteModelClasses = db.getNoteList();

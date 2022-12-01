@@ -3,6 +3,7 @@ package com.example.abisatya;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -14,6 +15,7 @@ public class TambahCatatanActivity extends AppCompatActivity {
     private ImageView ibtnBack;
     private EditText nCatatan, nJudulC;
     private TextView btnSimpan;
+    int id=0;
     DatabaseNote db = new DatabaseNote(this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {

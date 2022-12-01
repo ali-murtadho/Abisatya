@@ -13,7 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DatabaseNote extends SQLiteOpenHelper {
-    private Context context;
     private static final String DATABASE_NAME = "abisatyaNote.db";
     private static final int DATABASE_VERSION = 1;
     private static final String TABLE_NAME = "note";
@@ -24,7 +23,6 @@ public class DatabaseNote extends SQLiteOpenHelper {
 
     public DatabaseNote( Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-        //this.context = context;
     }
 
     @Override
@@ -34,8 +32,10 @@ public class DatabaseNote extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
         db.execSQL("DROP TABLE IF EXISTS note");
+        db.execSQL(query);
         onCreate(db);
     }
+
 
     public Boolean CreateNote(String judul, String catatan){
         SQLiteDatabase db = this.getWritableDatabase();
@@ -95,6 +95,18 @@ public class DatabaseNote extends SQLiteOpenHelper {
         }
         cursor.close();
         return storeNote;
+    }
+    public void updateNote(NoteModelClass noteModelClass){
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(DatabaseNote.JUDUL, noteModelClass.getJudul());
+        contentValues.put(DatabaseNote.CATATAN, noteModelClass.getCatatan());
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.update("note", contentValues, "id=?", new String[]{String.valueOf(noteModelClass.getId())});
+    }
+
+    public void deleteNote(int id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete("note","id=?", new String[]{String.valueOf(id)});
     }
 
 }

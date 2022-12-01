@@ -40,6 +40,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         holder.tvCatatan.setText(String.valueOf(catatan.get(position)));
 
 
+
     }
 
     @Override

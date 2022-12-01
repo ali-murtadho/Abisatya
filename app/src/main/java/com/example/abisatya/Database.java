@@ -1,5 +1,4 @@
 package com.example.abisatya;
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -12,8 +11,6 @@ import androidx.annotation.Nullable;
 import java.util.concurrent.RecursiveTask;
 
 import kotlin.contracts.Returns;
-
-
 public class Database extends SQLiteOpenHelper {
     Context context;
     public static final String DB_NAME = "abisatyaa.db";
@@ -24,12 +21,10 @@ public class Database extends SQLiteOpenHelper {
     private static final String PASSWORD = "password";
     private static final String NAMA = "nama";
     private static final String TELEPON = "telepon";
-
     public Database(Context context) {
         super(context, DB_NAME, null, 1);
         this.context = context;
     }
-
     @Override
     public void onCreate(SQLiteDatabase db) {
         String userr = "CREATE TABLE " + TABLE_NAME_1 +

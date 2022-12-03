@@ -5,10 +5,12 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.graphics.Bitmap;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
+import java.io.ByteArrayOutputStream;
 import java.util.concurrent.RecursiveTask;
 
 import kotlin.contracts.Returns;
@@ -24,6 +26,11 @@ public class Database extends SQLiteOpenHelper {
     private static final String PASSWORD = "password";
     private static final String NAMA = "nama";
     private static final String TELEPON = "telepon";
+    private static final String TENTANG = "tentang";
+    private static final String FOTO = "foto";
+
+    private static ByteArrayOutputStream byteArrayOutputStream;
+    private static byte[] imageInBytes;
 
     public Database(Context context) {
         super(context, DB_NAME, null, 1);
@@ -32,9 +39,9 @@ public class Database extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String userr = "CREATE TABLE " + TABLE_NAME_1 +
-                "(id INTEGER PRIMARY KEY AUTOINCREMENT, email TEXT, nama TEXT, password TEXT, telepon TEXT, tentang TEXT)";
-        db.execSQL(userr);
+        String user = "CREATE TABLE " + TABLE_NAME_1 +
+                "(id INTEGER PRIMARY KEY AUTOINCREMENT, email TEXT, nama TEXT, password TEXT, telepon TEXT, tentang TEXT, foto BLOB)";
+        db.execSQL(user);
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
@@ -42,13 +49,13 @@ public class Database extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public Boolean insertProfil(String email, String nama, String telepon, String tentang){
+    public Boolean insertUser(String email, String nama, String password, String telepon){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("email", email);
         contentValues.put("nama", nama);
+        contentValues.put("password", password);
         contentValues.put("telepon", telepon);
-        contentValues.put("tentang", tentang);
         long insert = db.insert("user", null, contentValues);
         if (insert == -1) {
             return false;
@@ -56,20 +63,45 @@ public class Database extends SQLiteOpenHelper {
             return true;
         }
     }
-    public Boolean insertUser(String email, String nama, String password, String telepon){
-     SQLiteDatabase db = this.getWritableDatabase();
-     ContentValues contentValues = new ContentValues();
-     contentValues.put("email", email);
-     contentValues.put("nama", nama);
-     contentValues.put("password", password);
-     contentValues.put("telepon", telepon);
-     long insert = db.insert("user", null, contentValues);
-     if (insert == -1) {
-         return false;
-     }else {
-         return true;
-     }
+
+    public void updateProfil(ModelClass modelClass){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Bitmap imageToStoreBitmap = modelClass.getFotoProfil();
+
+        byteArrayOutputStream = new ByteArrayOutputStream();
+        imageToStoreBitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
+
+        imageInBytes = byteArrayOutputStream.toByteArray();
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(Database.NAMA,modelClass.getNama());
+        contentValues.put("tentang", modelClass.getTentang());
+        contentValues.put("nama", modelClass.getNama());
+        contentValues.put("telepon", modelClass.getTelepon());
+        contentValues.put("email", modelClass.getEmail());
+        contentValues.put("foto", imageInBytes);
+
+        long checkIfQueryRun = db.update("user",contentValues,NAMA+" =?", new String[]{
+                String.valueOf(ModelClass.class)});
     }
+
+    public Cursor getUser(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("Select * from user", null);
+        return cursor;
+    }
+
+    public Cursor readAllData(){
+        String query = "SELECT * FROM " + TABLE_NAME_1;
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = null;
+        if (db != null){
+            cursor = db.rawQuery(query, null);
+        }
+        return cursor;
+    }
+
     public Boolean updatePassword(String password){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -105,6 +137,4 @@ public class Database extends SQLiteOpenHelper {
         else
             return false;
     }
-
-
 }

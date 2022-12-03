@@ -87,14 +87,6 @@ public class ProfilActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 storeImage();
-//                sNama = etNama.getText().toString();
-//                sTelpon = etTelpon.getText().toString();
-//                sEmail = etEmail.getText().toString();
-//                sTentang = etTelpon.getText().toString();
-//                byte[] imageByte = cursor.getBlob(4);
-//                Bitmap bitmap = BitmapFactory.decodeByteArray(imageByte,0, imageByte.length);
-//                fotoProfil.setImageBitmap(bitmap);
-//                Database.updateProfil(new ModelClass(ModelClass.getNama(), sTelpon, sTelpon, sTentang,imageToStore ));
             }
         });
         ibtnBack.setOnClickListener(new View.OnClickListener() {
@@ -177,24 +169,4 @@ public class ProfilActivity extends AppCompatActivity {
             Toast.makeText(this, "no data", Toast.LENGTH_SHORT);
         }
     }
-
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//
-//        if (resultCode == RESULT_CANCELED){
-//            Toast.makeText(this, "Canceled pick images", Toast.LENGTH_SHORT).show();
-//        } else if (requestCode == PROFIL_REQUEST_CODE){
-//            if (data != null){
-//                try {
-//                    Uri imageUri = data.getData();
-//                    uriString = imageUri.toString();
-//                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUri);
-//                    iProfil.setImageBitmap(bitmap);
-//                } catch (IOException e){
-//                    Toast.makeText(this, "Failed load images", Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        }
-//    }
 }

@@ -13,18 +13,22 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> {
     Context context;
-    ArrayList judul, catatan;
+    ArrayList judul, catatan, waktu;
     DatabaseNote db;
-    CustomAdapter(Context context, ArrayList judul, ArrayList catatan){
+    Activity activity;
+    CustomAdapter(Activity activity, Context context, ArrayList judul, ArrayList catatan, ArrayList waktu){
         this.catatan = catatan;
         this.judul = judul;
+        this.waktu = waktu;
         this.context = context;
+        this.activity = activity;
     }
     @NonNull
     @Override
@@ -38,8 +42,17 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.tvJudul.setText(String.valueOf(judul.get(position)));
         holder.tvCatatan.setText(String.valueOf(catatan.get(position)));
-
-
+        holder.NtvWaktu.setText(String.valueOf(waktu.get(position)));
+        holder.layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, EditCatatanMain.class);
+                intent.putExtra("judul", String.valueOf(judul.get(position)));
+                intent.putExtra("catatan", String.valueOf(catatan.get(position)));
+                intent.putExtra("waktu", String.valueOf(waktu.get(position)));
+                activity.startActivityForResult(intent,1);
+            }
+        });
 
     }
 
@@ -49,16 +62,18 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView tvJudul, tvCatatan;
-        Button btnDelete, btnEdit;
+        TextView tvJudul, tvCatatan, NtvWaktu;
+        //Button btnDelete, btnEdit;
+        ConstraintLayout layout;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-
+            layout = itemView.findViewById(R.id.layoutKlik);
+            NtvWaktu = itemView.findViewById(R.id.tvWaktu);
             tvCatatan = itemView.findViewById(R.id.tvCatatanHome);
             tvJudul = itemView.findViewById(R.id.tvJudulHome);
-            btnDelete = itemView.findViewById(R.id.btnHapusNote);
-            btnEdit = itemView.findViewById(R.id.btnEditNote);
+//            btnDelete = itemView.findViewById(R.id.btnHapusNote);
+           // btnEdit = itemView.findViewById(R.id.btnEditNote);
         }
     }
 }

@@ -6,7 +6,6 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -21,14 +20,11 @@ import com.google.android.material.imageview.ShapeableImageView;
 import java.io.IOException;
 
 public class MainMenuActivity extends AppCompatActivity {
-    private static final int SELECT_PICTURE = 1;
-    private static final String TAG = "MainMenuActivity";
-
-    private String sNama;
-    private TextView tvNama;
     private ConstraintLayout lCatatan, lSisiAbisatya;
     private Button btnLogout;
     private ShapeableImageView ibtnProfil;
+    private TextView tvnama;
+    String sNama;
     Database db;
 
     @Override
@@ -36,26 +32,22 @@ public class MainMenuActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
-
-        db = new Database(this);
-        getIntentData();
-
+        tvnama = findViewById(R.id.tvNama);
         btnLogout = findViewById(R.id.mm_btnLogout);
         lCatatan = findViewById(R.id.clCatatan);
         lSisiAbisatya = findViewById(R.id.clSisiAbisatya);
-        tvNama = findViewById(R.id.mm_tvNama);
-        ibtnProfil = (ShapeableImageView)findViewById(R.id.imgProfil);
-
+        db = new Database(this);
+        getIntentData();
         Cursor cursor = db.readAllData();
         if (cursor.getCount() == 0){
             Toast.makeText(getApplicationContext(), "No Entries", Toast.LENGTH_SHORT).show();
         }
         else {
             while (cursor.moveToNext()){
-                tvNama.setText(""+cursor.getString(2));
+                tvnama.setText(""+cursor.getString(2));
             }
         }
-
+        ibtnProfil = findViewById(R.id.imgProfil);
         ibtnProfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,6 +56,13 @@ public class MainMenuActivity extends AppCompatActivity {
             }
         });
 
+//        Uri imageUri = Uri.parse(getIntent().getExtras().getString("PROFIL"));
+//        try {
+//            Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUri);
+//            ibtnProfil.setImageBitmap(bitmap);
+//        } catch (IOException e) {
+//            Toast.makeText(this, "Failed load images", Toast.LENGTH_SHORT).show();
+//        }
 
         lCatatan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,14 +89,13 @@ public class MainMenuActivity extends AppCompatActivity {
             }
         });
     }
-
     void getIntentData(){
         Cursor cursor = db.readAllData();
         if (getIntent().hasExtra("nama")){
             //Getting Data From Intent
             sNama = getIntent().getStringExtra("nama");
             //Setting Intent Data
-            tvNama.setText(sNama);
+            tvnama.setText(sNama);
         }
         else {
             Toast.makeText(this, "no data", Toast.LENGTH_SHORT);

@@ -29,8 +29,9 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent">
+
                 <ImageView
-                    android:id="@+id/btnBack"
+                    android:id="@+id/btnBackUpdate"
                     android:layout_width="45dp"
                     android:layout_height="45dp"
                     android:layout_marginTop="10dp"
@@ -38,18 +39,28 @@
                     android:layout_marginRight="25dp"
                     android:src="@drawable/logo_button_back">
                 </ImageView>
+
                 <TextView
-                    android:id="@+id/tvSelesai"
+                    android:id="@+id/tvUpdate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
                     android:layout_marginLeft="210dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginRight="25dp"
-                    android:text="Selesai"
-                    android:textSize="18sp"
-                    android:fontFamily="@font/nunito_bold">
-                </TextView>
+                    android:fontFamily="@font/nunito_bold"
+                    android:text="Ubah"
+                    android:textSize="18sp"></TextView>
+
+                <TextView
+                    android:id="@+id/tvHapus"
+                    android:layout_width="34dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/nunito_bold"
+                    android:text="Hapus"
+                    android:textSize="18sp"></TextView>
+
 
             </LinearLayout>
 
@@ -76,7 +87,7 @@
                     app:layout_constraintBottom_toBottomOf="parent">
 
                     <EditText
-                        android:id="@+id/etJudul"
+                        android:id="@+id/etJudulUpdate"
                         android:layout_width="match_parent"
                         android:layout_height="30dp"
                         android:fontFamily="@font/nunito_bold"
@@ -109,7 +120,7 @@
         app:cardCornerRadius="15dp">
 
         <EditText
-            android:id="@+id/etCatatan"
+            android:id="@+id/etCatatanUpdate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
@@ -145,20 +156,113 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent">
 
-                    <EditText
-                        android:id="@+id/etWaktu"
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp"
-                        android:fontFamily="@font/nunito_bold"
-                        android:hint="Waktu"
-                        android:textAlignment="center"
-                        android:textSize="16sp"
-                        android:textColor="@color/white"
-                        android:textColorHint="@color/white"
-                        android:layout_margin="5dp"
-                        android:background="@color/transparent">
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/clImportUpdate"
+                        android:layout_width="310dp"
+                        android:layout_height="40dp"
+                        android:layout_margin="15dp"
+                        android:background="@drawable/square"
+                        android:backgroundTint="@color/primary_color"
+                        app:cardCornerRadius="15dp">
 
-                    </EditText>
+                        <LinearLayout
+                            android:id="@+id/llFileImportUpdate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_gravity="center"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent">
+
+                            <EditText
+                                android:id="@+id/etWaktuUpdate"
+                                android:layout_width="match_parent"
+                                android:layout_height="30dp"
+                                android:fontFamily="@font/nunito_bold"
+                                android:hint="Waktu"
+                                android:textAlignment="center"
+                                android:textSize="16sp"
+                                android:textColor="@color/white"
+                                android:textColorHint="@color/white"
+                                android:layout_margin="5dp"
+                                android:background="@color/transparent">
+
+                            </EditText>
+
+                            <!--                    <ImageView-->
+                            <!--                        android:id="@+id/imgMedia"-->
+                            <!--                        android:layout_width="28dp"-->
+                            <!--                        android:layout_height="28dp"-->
+                            <!--                        android:layout_gravity="center"-->
+                            <!--                        android:src="@drawable/logo_media">-->
+                            <!--                    </ImageView>-->
+
+                            <!--                    <androidx.cardview.widget.CardView-->
+                            <!--                        android:layout_width="240dp"-->
+                            <!--                        android:layout_height="42dp"-->
+                            <!--                        android:layout_marginLeft="15dp"-->
+                            <!--                        android:layout_gravity="center"-->
+                            <!--                        android:background="@drawable/media"-->
+                            <!--                        android:backgroundTint="@color/import_color"-->
+                            <!--                        app:cardCornerRadius="300dp">-->
+
+                            <!--                        <LinearLayout-->
+                            <!--                            android:layout_width="match_parent"-->
+                            <!--                            android:layout_height="match_parent"-->
+                            <!--                            android:orientation="horizontal"-->
+                            <!--                            app:layout_constraintStart_toStartOf="parent"-->
+                            <!--                            app:layout_constraintTop_toTopOf="parent"-->
+                            <!--                            app:layout_constraintEnd_toEndOf="parent"-->
+                            <!--                            app:layout_constraintBottom_toBottomOf="parent">-->
+
+                            <!--                            <ImageView-->
+                            <!--                                android:id="@+id/imgImage"-->
+                            <!--                                android:layout_width="28dp"-->
+                            <!--                                android:layout_height="28dp"-->
+                            <!--                                android:layout_marginLeft="20dp"-->
+                            <!--                                android:layout_gravity="center"-->
+                            <!--                                android:src="@drawable/logo_image">-->
+                            <!--                            </ImageView>-->
+                            <!--                            <ImageView-->
+                            <!--                                android:id="@+id/imgVideo"-->
+                            <!--                                android:layout_width="28dp"-->
+                            <!--                                android:layout_height="28dp"-->
+                            <!--                                android:layout_margin="15dp"-->
+                            <!--                                android:layout_gravity="center"-->
+                            <!--                                android:src="@drawable/logo_video">-->
+                            <!--                            </ImageView>-->
+                            <!--                            <ImageView-->
+                            <!--                                android:id="@+id/imgAudio"-->
+                            <!--                                android:layout_width="28dp"-->
+                            <!--                                android:layout_height="28dp"-->
+                            <!--                                android:layout_gravity="center"-->
+                            <!--                                android:src="@drawable/logo_audio">-->
+                            <!--                            </ImageView>-->
+                            <!--                            <ImageView-->
+                            <!--                                android:id="@+id/imgPDF"-->
+                            <!--                                android:layout_width="28dp"-->
+                            <!--                                android:layout_height="28dp"-->
+                            <!--                                android:layout_margin="15dp"-->
+                            <!--                                android:layout_gravity="center"-->
+                            <!--                                android:src="@drawable/logo_pdf">-->
+                            <!--                            </ImageView>-->
+                            <!--                            <ImageView-->
+                            <!--                                android:id="@+id/imgLainnya"-->
+                            <!--                                android:layout_width="28dp"-->
+                            <!--                                android:layout_height="28dp"-->
+                            <!--                                android:layout_gravity="center"-->
+                            <!--                                android:src="@drawable/logo_lainnya">-->
+                            <!--                            </ImageView>-->
+
+                            <!--                        </LinearLayout>-->
+
+                            <!--                    </androidx.cardview.widget.CardView>-->
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
 
 <!--                    <ImageView-->
 <!--                        android:id="@+id/imgMedia"-->

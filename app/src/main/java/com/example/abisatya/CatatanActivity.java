@@ -1,5 +1,6 @@
 package com.example.abisatya;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -26,9 +27,9 @@ public class CatatanActivity extends AppCompatActivity {
     ImageView ibtnBack, ibtnPlus;
     DatabaseNote db;
     RecyclerView recyclerView1;
-    ArrayList<String> judul, catatan;
+    ArrayList<String> judul, catatan, waktu;
     CustomAdapter customAdapter;
-    NoteAdapterClass noteAdapterClass;
+//    NoteAdapterClass noteAdapterClass;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         getSupportActionBar().hide();
@@ -40,6 +41,7 @@ public class CatatanActivity extends AppCompatActivity {
         db = new DatabaseNote(this);
         judul = new ArrayList<>();
         catatan = new ArrayList<>();
+        waktu = new ArrayList<>();
         ibtnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -55,12 +57,13 @@ public class CatatanActivity extends AppCompatActivity {
             }
         });
         displayData();
-        customAdapter = new CustomAdapter(CatatanActivity.this, judul, catatan);
+        customAdapter = new CustomAdapter(CatatanActivity.this, this, judul, catatan, waktu);
         recyclerView1.setAdapter(customAdapter);
         recyclerView1.setLayoutManager(new LinearLayoutManager(CatatanActivity.this));
-        recyclerView1.setHasFixedSize(true);
+//        recyclerView1.setHasFixedSize(true);
+//
 
-        List<NoteModelClass> noteModelClasses = db.getNoteList();
+//        List<NoteModelClass> noteModelClasses = db.getNoteList();
 
 
 //        List<NoteModelClass> noteModelClasses = db.getNoteList();
@@ -122,6 +125,15 @@ public class CatatanActivity extends AppCompatActivity {
 //        }
 //    }
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1){
+            recreate();
+        }
+    }
+
     void displayData(){
         Cursor cursor = db.readNote();
         if (cursor.getCount() == 0){
@@ -130,6 +142,7 @@ public class CatatanActivity extends AppCompatActivity {
             while (cursor.moveToNext()){
                 judul.add(cursor.getString(0));
                 catatan.add(cursor.getString(1));
+                waktu.add(cursor.getString(2));
             }
         }
     }

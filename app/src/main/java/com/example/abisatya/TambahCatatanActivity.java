@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 public class TambahCatatanActivity extends AppCompatActivity {
     private ImageView ibtnBack;
-    private EditText nCatatan, nJudulC;
+    private EditText nCatatan, nJudulC, nWaktu;
     private TextView btnSimpan;
     int id=0;
     DatabaseNote db = new DatabaseNote(this);
@@ -24,6 +24,7 @@ public class TambahCatatanActivity extends AppCompatActivity {
         setContentView(R.layout.activity_tambah_catatan);
         nCatatan = findViewById(R.id.etCatatan);
         nJudulC = findViewById(R.id.etJudul);
+        nWaktu = findViewById(R.id.etWaktu);
         btnSimpan = findViewById(R.id.tvSave);
         ibtnBack = findViewById(R.id.btnBack);
         ibtnBack.setOnClickListener(new View.OnClickListener() {
@@ -38,7 +39,8 @@ public class TambahCatatanActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String judul = nJudulC.getText().toString();
                 String catat = nCatatan.getText().toString();
-                Boolean insertnote = db.CreateNote(judul, catat);
+                String waktu = nWaktu.getText().toString();
+                Boolean insertnote = db.CreateNote(judul, catat, waktu);
                     if (insertnote) {
                         Toast.makeText(TambahCatatanActivity.this, "Berhasil menambahkan catatan", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(TambahCatatanActivity.this, CatatanActivity.class);

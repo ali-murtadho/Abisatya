@@ -232,6 +232,20 @@
             android:textSize="12sp"
             android:textAllCaps="false">
         </android.widget.Button>
+
+        <android.widget.Button
+            android:id="@+id/btnHapusProfil"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/square"
+            android:backgroundTint="@color/primary_color"
+            android:fontFamily="@font/nunito_extrabold"
+            android:text="Hapus Akun"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,13 +13,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DatabaseNote extends SQLiteOpenHelper {
-    private static final String DATABASE_NAME = "abisatyaNote.db";
+    private static final String DATABASE_NAME = "abisatya_Note.db";
     private static final int DATABASE_VERSION = 1;
     private static final String TABLE_NAME = "note";
     private static final String ID = "id";
     private static final String JUDUL = "judul";
     private static final String CATATAN = "catatan";
-    private String query = "CREATE TABLE note (id INTEGER PRIMARY KEY AUTOINCREMENT, judul TEXT, catatan TEXT)";
+    private String query = "CREATE TABLE note (id INTEGER PRIMARY KEY AUTOINCREMENT, judul TEXT, catatan TEXT, waktu TEXT)";
 
     public DatabaseNote( Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -37,11 +37,13 @@ public class DatabaseNote extends SQLiteOpenHelper {
     }
 
 
-    public Boolean CreateNote(String judul, String catatan){
+    // INSERT REFERENSI PINK
+    public Boolean CreateNote(String judul, String catatan, String waktu){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("judul", judul);
         contentValues.put("catatan", catatan);
+        contentValues.put("waktu", waktu);
         long insert = db.insert("note", null, contentValues);
         if (insert == -1){
             return false;
@@ -49,20 +51,24 @@ public class DatabaseNote extends SQLiteOpenHelper {
             return true;
         }
     }
-    public Boolean updateNote(String judul, String catatan){
+    //UPDATE REFERENSI PINK
+    public Boolean updateNote(String judul, String catatan, String waktu){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
+
         contentValues.put("judul", judul);
         contentValues.put("catatan", catatan);
-        long update = db.update(TABLE_NAME, contentValues, "judul=?", new String[]{judul, catatan});
+        contentValues.put("waktu", waktu);
+        long update = db.update(TABLE_NAME, contentValues, "judul=?", new String[]{judul});
         if (update == -1){
             return false;
         }else {
             return true;
         }
     }
+    // READ REFERENSI PINK
     Cursor readNote(){
-        String query = "SELECT * FROM note";
+        String query = "SELECT judul, catatan, waktu FROM note";
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = null;
         if (db != null){
@@ -70,6 +76,8 @@ public class DatabaseNote extends SQLiteOpenHelper {
         }
         return cursor;
     }
+
+    //DELETE REFERENSI PINK
     public Boolean deleteNote(String judul){
         SQLiteDatabase db = this.getWritableDatabase();
         long delete = db.delete(TABLE_NAME,"judul=?", new String[]{judul});
